@@ -1,15 +1,15 @@
 <template>
   <div>
     <mt-spinner type="snake" v-show="boxList.length === 0"></mt-spinner>
-    <item 
-        v-for="(item,index) in boxList" 
-        :index='index'
-        :src='item.subject.images.large'
-        :title='item.subject.title'
-        :daoyan='item.subject.directors'
-        :zhuyan='item.subject.casts'
-        :id ='item.subject.id'>
-    </item>
+        <item 
+            v-for="(item,index) in boxList" 
+            :index='index'
+            :src='item.subject.images.large'
+            :title='item.subject.title'
+            :daoyan='item.subject.directors'
+            :zhuyan='item.subject.casts'
+            :id ='item.subject.id'>
+        </item>
   </div>
 </template>
 
@@ -38,6 +38,10 @@ export default {
 </script>
 
 <style>
+  ul{
+      margin: 0;
+      padding: 0;
+  }
   .mint-spinner-snake{
       margin: 20px auto;
       border-top-color: #26a2ff !important;

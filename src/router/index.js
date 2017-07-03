@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// @ == .. 返回上一级目录
-import home from '@/components/home'
-// import detail from '@/pages/detail'
-import list from '@/pages/list'
+
 Vue.use(Router)
 
 // movie
@@ -22,6 +19,7 @@ export default new Router({
       name: 'mIndex',
       component: mIndex,
       meta: { keepAlive: true },
+      redirect:'/piaofang',
       children:[{
         path:'/piaofang',
         name:list1,
@@ -49,11 +47,6 @@ export default new Router({
       path: '/detail',
       name: 'mDetail',
       component: mDetail
-    },
-    {
-    	path: '/list',
-    	name: 'list',
-    	component: list
     },
     {
       path: '/movieDetail',

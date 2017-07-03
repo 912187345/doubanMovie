@@ -21,7 +21,7 @@
             :autofocus="true"
             :show="true"
            >
-           <div class="searchLine" @click='goDetail(id)' v-for="item in result">
+           <div class="searchLine" @click='goDetail(item.id)' v-for="item in result">
                 {{ item.title }}
            </div>
         </mt-search>
@@ -32,6 +32,7 @@
 <script>
 import jsonp from 'jsonp'
 import { Indicator } from 'mint-ui';
+import { mapActions } from 'vuex';
 var timer = null;
 export default {
     name:'search',
@@ -39,6 +40,7 @@ export default {
         window.scrollTo(0, 0);
     },
     methods:{
+        ...mapActions(['FETCH_MOVIE_DETAIL']),
         searchMoive(){
             if( this.searchBol || !this.value || this.beforeValue === this.value ){ return }
             this.beforeValue = this.value;
@@ -53,8 +55,10 @@ export default {
                 }
             }.bind(this))
         },
-        goDetail(){
-            this.$route
+        goDetail(id){
+            console.log(id);
+            this.FETCH_MOVIE_DETAIL(id);
+            this.$router.push({ path:'movieDetail'});
         },
         back(){
             window.history.back();

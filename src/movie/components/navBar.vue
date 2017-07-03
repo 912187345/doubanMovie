@@ -6,7 +6,7 @@
             </div>
         </router-link>
         <router-link to="/shangying" @click.native='selct("shangying")' :class='type ==="shangying"?"active":""'>
-            正在上映
+            国内正在上映
         </router-link>
         <router-link to="/TOP250" @click.native='selct("TOP250")' :class='type ==="TOP250"?"active":""'>
             TOP250
