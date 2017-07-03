@@ -1,10 +1,6 @@
-# vue
+个人做的一个豆瓣电影Vue Spa小项目 使用了vue全家桶+MintUI 当有空余时间时会持续更新
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
+个人建议用淘宝镜像安装依赖，npm有些资源需要翻墙，经常会依赖安装不全
 # install dependencies
 npm install
 
