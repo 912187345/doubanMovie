@@ -4,6 +4,7 @@ import Vue from 'vue'
 import router from './router/index'
 import store from './store/store'
 import app from './App.vue'
+import './common/common.less'
 // 使用mint ui
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'

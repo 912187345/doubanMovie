@@ -38,14 +38,4 @@ export default {
 </script>
 
 <style>
-  ul{
-      margin: 0;
-      padding: 0;
-  }
-  .mint-spinner-snake{
-      margin: 20px auto;
-      border-top-color: #26a2ff !important;
-      border-left-color: #26a2ff !important;
-      border-bottom-color: #26a2ff !important;
-  }
 </style>

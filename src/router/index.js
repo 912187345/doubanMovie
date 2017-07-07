@@ -5,8 +5,9 @@ Vue.use(Router)
 
 // movie
 import mIndex from '../movie/pages/index'
-import mSearch from '../movie/components/search'
+import celebrity from '../movie/pages/celebrityDetail'
 import mDetail from '../movie/pages/detail'
+import mSearch from '../movie/components/search'
 import list1 from '../movie/components/list1'
 import list2 from '../movie/components/list2'
 import list3 from '../movie/components/list3'
@@ -52,6 +53,11 @@ export default new Router({
       path: '/movieDetail',
       name: 'movieDetail',
       component: mDetail
+    },
+    { //影人详情
+      path: '/celebrity',
+      name: 'celebrity',
+      component: celebrity
     }
   ]
 })

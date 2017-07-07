@@ -3,7 +3,7 @@
   <div>
     <div v-if="list"> 
         <span class="title">{{ title }}:</span>
-        <span v-for='(item,index) in list' class="content"> 
+        <span v-for='(item,index) in list' class="content" @click="submitCelebrity(item.id)"> 
             <span v-if='index !== 0'>/</span> <span v-if="item.name">{{ item.name }} </span> <span v-else>{{ item }}</span>
         </span>
     </div>
@@ -15,8 +15,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-    props:['title','list','text']
+    props:['title','list','text','unRouter'],
+    methods:{
+        ...mapActions(['FETCH_MOVIE_CELEBRITY']),
+        submitCelebrity(id){
+            if( this.unRouter || !id ){ return }
+            this.FETCH_MOVIE_CELEBRITY(id);
+            this.$router.push({ path:'celebrity'});
+        }
+    }
 }
 </script>
 

@@ -1,7 +1,6 @@
-
 <template>
   <mt-swipe :auto="4000">
-    <mt-swipe-item v-for='(item,index) in inTheaters ' v-if='index <= 5'>
+    <mt-swipe-item v-for='(item,index) in inTheaters' v-if='index <= 5'>
         <img :src="item.images.large" style="width:100%;display:block;">
     </mt-swipe-item>
    </mt-swipe>

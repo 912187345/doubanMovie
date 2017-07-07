@@ -2,7 +2,8 @@
   <div
     v-infinite-scroll="loadMore"
     infinite-scroll-disabled="loading"
-    infinite-scroll-distance="10">
+    infinite-scroll-distance="10"
+    infinite-scroll-immediate-check=false>
     <mt-spinner type="snake" v-show="boxList.length === 0"></mt-spinner>
     <item 
         v-for="(item,index) in boxList" 
@@ -23,9 +24,9 @@ import jsonp from 'jsonp'
 import loading from '../components/loading'
 export default {
     methods:{
-        loadMore() {
+        loadMore(){
             this.loading = true;
-             this.showData('loadMore');
+            this.showData('loadMore');
         },
         showData(type){
             if( !this.loadIcon ){ return }
@@ -71,10 +72,4 @@ export default {
 </script>
 
 <style>
-  .mint-spinner-snake{
-      margin: 20px auto;
-      border-top-color: #26a2ff !important;
-      border-left-color: #26a2ff !important;
-      border-bottom-color: #26a2ff !important;
-  }
 </style>
