@@ -1,11 +1,11 @@
 <template>
     <div id="app">
-      <transition :name="transitionName">
+      <transition name="homeTransition">
         <keep-alive>
             <router-view v-if="$route.meta.keepAlive"></router-view>
         </keep-alive>
       </transition>
-      <transition :name="transitionName">
+      <transition name="homeTransition">
         <router-view v-if="!$route.meta.keepAlive"></router-view>
       </transition>
     </div>
@@ -16,36 +16,19 @@ export default {
   name: 'app',
   data(){
     return {
-      transitionName:'slide-right'
+      transitionName:'homeTransition'
     }
-  },
-  watch: {
-  '$route' (to, from) {
-    const toDepth = to.path.split('/').length
-    const fromDepth = from.path.split('/').length
-    this.transitionName = toDepth < fromDepth ? 'bounce' : 'bounce'
-    console.log( this.transitionName );
   }
-}
 }
 </script>
 
-<style>
-.bounce-enter-active {
-  animation: bounce-in .5s;
+<style lang='less'>
+.homeTransition-enter-active,
+.homeTransition-leave-active {
+	transition: opacity .2s;
 }
-.bounce-leave-active {
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
+.homeTransition-enter,
+.homeTransition-leave-active {
+	opacity: 0;
 }
 </style>

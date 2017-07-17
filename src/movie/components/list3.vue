@@ -5,15 +5,18 @@
     infinite-scroll-distance="10"
     infinite-scroll-immediate-check=false>
     <mt-spinner type="snake" v-show="boxList.length === 0"></mt-spinner>
-    <item 
-        v-for="(item,index) in boxList" 
-        :index='index'
-        :src='item.images.large'
-        :title='item.title'
-        :daoyan='item.directors'
-        :zhuyan='item.casts'
-        :id ='item.id'>
-    </item>
+    <transition-group enter-active-class="animated bounce" leave-active-class="animated bounce">
+        <item
+            v-for="(item,index) in boxList" 
+            :key="item"
+            :index='index'
+            :src='item.images.large'
+            :title='item.title'
+            :daoyan='item.directors'
+            :zhuyan='item.casts'
+            :id ='item.id'>
+        </item>
+    </transition-group>
     <loading v-show='loading' :loadIcon='loadIcon' :content='loadContent'></loading>
   </div>
 </template>
@@ -70,6 +73,3 @@ export default {
     }
 }
 </script>
-
-<style>
-</style>

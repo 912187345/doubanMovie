@@ -1,32 +1,21 @@
 <template>
     <div>
-        <header class="mint-header">
-            <div class="mint-header-button is-left">
-                <a href="javascript:;" @click="back()" class="router-link-exact-active router-link-active">
-            <button class="mint-button mint-button--default mint-button--normal">
-                <span class="mint-button-icon">
-                    <i class="mintui mintui-back"></i>
-                    </span> 
-                    <label class="mint-button-text">返回</label>
-                    </button>
-                    </a>
-                    </div> 
-                    <h1 class="mint-header-title">搜索</h1>
-                        <div class="mint-header-button is-right"></div>
-                        </header>
+        <mt-header title="搜索">
+            <mt-button slot="left" @click="back()" icon="back">返回</mt-button>
+        </mt-header>
         <mt-search
             v-model="value"
             cancel-text="取消"
             placeholder="请输入电影名字"
             :autofocus="true"
-            :show="true"
-           >
-           <div class="searchLine" @click='goDetail(item.id)' v-for="item in result">
-                {{ item.title }}
-           </div>
+            :show="true">
+           <transition-group enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+                <div class="searchLine" @click='goDetail(item.id)' v-for="item in result" :key="item">
+                    {{ item.title }}
+                </div>
+           </transition-group>
         </mt-search>
     </div>
-     
 </template>
 
 <script>
@@ -80,7 +69,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    header{
+        z-index: 999;
+    }
     .searchLine{
         padding: 0 15px;
         line-height: 40px;

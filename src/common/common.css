@@ -1,0 +1,22 @@
+img{
+    display: block;
+    width: 100%;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.mint-spinner-double-bounce{
+    margin: 60px auto 0;
+    width: 50px !important;
+    height: 50px !important;
+}
+.mint-spinner-double-bounce-bounce2,.mint-spinner-double-bounce-bounce1{
+    background-color: #26a2ff !important;
+}
+.mint-spinner-snake{
+    margin: 20px auto;
+    border-top-color: #26a2ff !important;
+    border-left-color: #26a2ff !important;
+    border-bottom-color: #26a2ff !important;
+}

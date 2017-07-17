@@ -33,10 +33,8 @@
             </info>
             <p>最受好评的5部作品--</p>
             <ul class="worksList">
-                <li v-for='item in celebrity.works'>
-                    <div>
-                        <img :src="item.subject.images.large">
-                    </div>
+                <li v-for='item in celebrity.works' @click="goDetail(item.subject.id)">
+                    <div class="img" :style="'background-image:url('+ item.subject.images.large +');'"></div>
                     <div>
                         {{ item.subject.title }} <span class="score">{{ item.subject.rating.average }}</span> {{ item.subject.year }}
                     </div>
@@ -51,6 +49,31 @@
     </div>
 </template>
 
+<script>
+import { mapState, mapActions } from 'vuex'
+import detailItem from '../components/detailItem'
+import info from '../components/info'
+export default {
+    methods:{
+        ...mapActions(['FETCH_MOVIE_DETAIL']),
+        goback(){
+            window.history.back();
+        },
+        goDetail(id){
+            this.FETCH_MOVIE_DETAIL(id);
+            this.$router.push({ path:'movieDetail'});
+        }
+    },
+    computed:{
+        ...mapState(['celebrity','celebrityLoading'])
+    },
+    components:{
+        detailItem,
+        info
+    }
+}
+</script>
+
 <style scoped lang='less'>
     .worksList{
         padding: 0 2%;
@@ -63,25 +86,11 @@
         >li:nth-child(2n+1){
             margin-right: 6%;
         }
+        .img{
+            width: 100%;
+            height: 180px;
+            background: no-repeat center center;
+            background-size: cover;
+        }
     }
 </style>
-
-<script>
-import { mapState } from 'vuex'
-import detailItem from '../components/detailItem'
-import info from '../components/info'
-export default {
-    methods:{
-        goback(){
-            window.history.back();
-        }
-    },
-    computed:{
-        ...mapState(['celebrity','celebrityLoading'])
-    },
-    components:{
-        detailItem,
-        info
-    }
-}
-</script>

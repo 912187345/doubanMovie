@@ -36,16 +36,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
   .selec-item{
       font-size: 12px;
       margin-top: 10px;
       background: #ffffff;
       padding: 6px 0;
-  }
-  .selec-item > div{
-    display: inline-block;
-    vertical-align: middle;
+      >div{
+        display: inline-block;
+        vertical-align: middle;
+      }
   }
   .con{
       margin-left: 6px;

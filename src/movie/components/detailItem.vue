@@ -4,7 +4,7 @@
     <div v-if="list"> 
         <span class="title">{{ title }}:</span>
         <span v-for='(item,index) in list' class="content" @click="submitCelebrity(item.id)"> 
-            <span v-if='index !== 0'>/</span> <span v-if="item.name">{{ item.name }} </span> <span v-else>{{ item }}</span>
+            <span v-if='index !== 0' style="color:#000000">/</span> <span v-if="item.name">{{ item.name }} </span> <span v-else>{{ item }}</span>
         </span>
     </div>
     <div v-else-if="text">

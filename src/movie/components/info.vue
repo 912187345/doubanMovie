@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
     img{
         display: block;
         width: 100%;
@@ -25,9 +25,9 @@ export default {
     .con{
         width: 63%;
         margin-left: 2%;
-    }
-    .con > div{
-        line-height: 23px;
+        >div{
+            line-height: 23px;
+        }
     }
     .img,.con{
         display: inline-block;
