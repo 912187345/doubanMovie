@@ -15,8 +15,8 @@
 
 安装依赖 `cnpm install`
 
-启动服务器和热加载 `cnpm run dev`
+启动服务器和热加载 `npm run dev`
 
-打包 `cnpm run build`
+打包 `npm run build`
 
 当有空余时间时和豆瓣开放更多api时会持续更新
