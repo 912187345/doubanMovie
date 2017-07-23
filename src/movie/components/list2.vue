@@ -8,7 +8,7 @@
     <transition-group enter-active-class="animated bounce" leave-active-class="animated bounce">
         <item 
             v-for="(item,index) in boxList" 
-            :key="item"
+            :key="item.id"
             :index='index'
             :src='item.images.large'
             :title='item.title'
