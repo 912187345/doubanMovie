@@ -1,14 +1,14 @@
 <template>
     <div class="navBar" :class="fiexdBol?'fixed':''" ref='nav'>
-        <router-link to="/piaofang" @click.native='selct("piaofang")' :class='type ==="piaofang"?"active":""'>
+        <router-link to="/piaofang" @click.native='selct("/piaofang")' :class='type ==="/piaofang"?"active":""'>
             <div>
                 北美票房榜
             </div>
         </router-link>
-        <router-link to="/shangying" @click.native='selct("shangying")' :class='type ==="shangying"?"active":""'>
+        <router-link to="/shangying" @click.native='selct("/shangying")' :class='type ==="/shangying"?"active":""'>
             广州正在上映
         </router-link>
-        <router-link to="/TOP250" @click.native='selct("TOP250")' :class='type ==="TOP250"?"active":""'>
+        <router-link to="/TOP250" @click.native='selct("/TOP250")' :class='type ==="/TOP250"?"active":""'>
             TOP250
         </router-link>
     </div>
@@ -38,8 +38,13 @@ export default {
     },
     data(){
         return {
-            type:'piaofang',
+            type:'/piaofang',
             fiexdBol:false
+        }
+    },
+    watch:{
+        $route(newV, oldV){
+            this.type = newV.path;
         }
     }
 }

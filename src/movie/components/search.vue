@@ -5,12 +5,14 @@
         </mt-header>
         <mt-search
             v-model="value"
-            cancel-text="取消"
             placeholder="请输入电影名字"
             :autofocus="true"
             :show="true">
            <transition-group enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
-                <div class="searchLine" @click='goDetail(item.id)' v-for="item in result" :key="item">
+                <div class="searchLine" 
+                    @click='goDetail(item.id)' 
+                    v-for="item in result"
+                    :key="item">
                     {{ item.title }}
                 </div>
            </transition-group>
@@ -69,7 +71,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
     header{
         z-index: 999;
     }
@@ -79,9 +81,6 @@ export default {
         font-size: 14px;
     }
     .mint-search-list{
-        top: 40px;
-    }
-    .mint-cell{
-        border-bottom: 1px solid #e5e5e5;
+        padding-top: 90px !important;
     }
 </style>
