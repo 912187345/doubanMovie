@@ -5,19 +5,19 @@
     infinite-scroll-distance="10"
     infinite-scroll-immediate-check=false>
     <mt-spinner type="snake" v-show="boxList.length === 0"></mt-spinner>
-    <transition-group enter-active-class="animated bounce" leave-active-class="animated bounce">
-        <item
-            v-for="(item,index) in boxList" 
-            :key="item.id"
-            :index='index'
-            :src='item.images.large'
-            :title='item.title'
-            :daoyan='item.directors'
-            :zhuyan='item.casts'
-            :id ='item.id'>
-        </item>
-    </transition-group>
-    <loading v-show='loading' :loadIcon='loadIcon' :content='loadContent'></loading>
+        <transition-group enter-active-class="animated bounce">
+            <item
+                v-for="(item,index) in boxList" 
+                :key="index"
+                :index='index'
+                :src='item.images.large'
+                :title='item.title'
+                :daoyan='item.directors'
+                :zhuyan='item.casts'
+                :id ='item.id'>
+            </item>
+        </transition-group>
+    <loading v-show='loading' :loadIcon='iconBol' :content='loadContent'></loading>
   </div>
 </template>
 
@@ -32,7 +32,6 @@ export default {
             this.showData('loadMore');
         },
         showData(type){
-            if( !this.loadIcon ){ return }
             var start = this.boxList.length;
             var count = 10;
             jsonp(`https://api.douban.com/v2/movie/top250?start=${ start }&count=${ count }`,null,function (err,data) {
@@ -40,15 +39,15 @@ export default {
                     console.log( err )
                 } else {
                     if ( !data.subjects.length ){
-                        this.loadIcon = false;
+                        this.iconBol = false;
                         this.loadContent = '已全部加载完~';
                         return;
                     }
                     if ( type === 'loadMore' ){
                         for(let i = 0; i < data.subjects.length; i++){
                             this.boxList.push( data.subjects[i] )
-                            this.loading = false;
                         }
+                        this.loading = false;
                     } else {
                         this.boxList = data.subjects
                     }
@@ -63,7 +62,7 @@ export default {
         return {
             boxList:[],
             loading:false,
-            loadIcon:true,
+            iconBol:true,
             loadContent:'加载中'
         }
     },

@@ -5,10 +5,10 @@
     infinite-scroll-distance="10"
     infinite-scroll-immediate-check=false>
     <mt-spinner type="snake" v-show="boxList.length === 0"></mt-spinner>
-    <transition-group enter-active-class="animated bounce" leave-active-class="animated bounce">
+    <transition-group enter-active-class="animated bounce">
         <item 
             v-for="(item,index) in boxList" 
-            :key="item.id"
+            :key="item"
             :index='index'
             :src='item.images.large'
             :title='item.title'
@@ -17,7 +17,7 @@
             :id ='item.id'>
         </item>
     </transition-group>
-    <loading v-show='loading' :loadIcon='loadIcon' :content='loadContent'></loading>
+    <loading v-show='loading' :loadIcon='iconBol' :content='loadContent'></loading>
   </div>
 </template>
 
@@ -39,15 +39,15 @@ export default {
                     console.log( err )
                 } else {
                     if ( !data.subjects.length ){
-                        this.loadIcon = false;
+                        this.iconBol = false;
                         this.loadContent = '已全部加载完~';
                         return;
                     }
                     if ( type === 'loadMore' ){
-                        for(let i = 0; i < data.subjects.length; i++){
+                        for(let i = 0,len = data.subjects.length;i < len; i++){
                             this.boxList.push( data.subjects[i] )
-                            this.loading = false;
                         }
+                        this.loading = false;
                     } else {
                         this.boxList = data.subjects
                     }
@@ -62,7 +62,7 @@ export default {
         return {
             boxList:[],
             loading:false,
-            loadIcon:true,
+            iconBol:true,
             loadContent:'加载中'
         }
     },
