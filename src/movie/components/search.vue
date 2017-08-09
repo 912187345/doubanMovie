@@ -36,13 +36,13 @@ export default {
             if( this.searchBol || !this.value || this.beforeValue === this.value ){ return }
             this.beforeValue = this.value;
             this.searchBol = true;
+            console.log('发送请求啦')
             jsonp(`https://api.douban.com/v2/movie/search?tag=${ this.value }`,null,function (err,data) {
                 if( err ){
                     console.log( err );
                 } else {
                     this.result = data.subjects;
                     this.searchBol = false;
-                    console.log( data.subjects );
                 }
             }.bind(this))
         },
@@ -65,7 +65,8 @@ export default {
     },
     watch:{
         value(newV,oldV){
-            setTimeout(this.searchMoive,2000);
+            clearTimeout(timer);
+            timer = setTimeout(this.searchMoive,700);
         }
     }
 }
