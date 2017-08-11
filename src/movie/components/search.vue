@@ -36,7 +36,6 @@ export default {
             if( this.searchBol || !this.value || this.beforeValue === this.value ){ return }
             this.beforeValue = this.value;
             this.searchBol = true;
-            console.log('发送请求啦')
             jsonp(`https://api.douban.com/v2/movie/search?tag=${ this.value }`,null,function (err,data) {
                 if( err ){
                     console.log( err );
