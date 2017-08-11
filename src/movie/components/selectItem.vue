@@ -38,7 +38,7 @@ export default {
 
 <style scoped lang='less'>
   .selec-item{
-      font-size: 12px;
+      font-size: 0px;
       margin-top: 10px;
       background: #ffffff;
       padding: 6px 0;
@@ -50,6 +50,7 @@ export default {
   .con{
       margin-left: 6px;
       width: 64%;
+      font-size: 14px;
   }
   .title{
       font-size: 14px;
