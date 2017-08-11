@@ -67,5 +67,6 @@ export default {
     .summary{
         margin-top: 16px;
         text-indent: 2em;
+        line-height: 28px;
     }
 </style>
