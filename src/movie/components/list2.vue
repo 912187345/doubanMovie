@@ -1,14 +1,14 @@
 <template>
   <div
     v-infinite-scroll="loadMore"
-    infinite-scroll-disabled="loading"
+    infinite-scroll-disabled=false
     infinite-scroll-distance="10"
     infinite-scroll-immediate-check=false>
     <mt-spinner type="snake" v-show="boxList.length === 0"></mt-spinner>
-    <transition-group enter-active-class="animated bounce">
+    <transition-group enter-active-class="animated fadeInLeft">
         <item 
             v-for="(item,index) in boxList" 
-            :key="item"
+            :key="index"
             :index='index'
             :src='item.images.large'
             :title='item.title'

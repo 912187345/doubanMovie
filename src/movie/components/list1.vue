@@ -1,6 +1,7 @@
 <template>
   <div>
     <mt-spinner type="snake" v-show="boxList.length === 0"></mt-spinner>
+    <transition-group enter-active-class="animated fadeInLeft">
         <item 
             v-for="(item,index) in boxList" 
             :key="index"
@@ -11,6 +12,7 @@
             :zhuyan='item.subject.casts'
             :id ='item.subject.id'>
         </item>
+    </transition-group>
   </div>
 </template>
 
