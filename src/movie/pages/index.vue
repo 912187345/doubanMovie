@@ -17,6 +17,11 @@ import swiper from '../components/swiper'
 import navBar from '../components/navBar'
 export default {
     name:'mIndex',
+    mounted(){
+        this.$router.push({ path:'piaofang'});
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTo = 0;
+    },
     components:{
         swiper,
         navBar
