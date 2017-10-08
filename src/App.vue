@@ -1,13 +1,13 @@
 <template>
     <div id="app">
-      <transition name="homeTransition">
+      <!-- <transition name="homeTransition"> -->
         <keep-alive>
             <router-view v-if="$route.meta.keepAlive"></router-view>
         </keep-alive>
-      </transition>
-      <transition name="homeTransition">
+      <!-- </transition> -->
+      <!-- <transition name="homeTransition"> -->
         <router-view v-if="!$route.meta.keepAlive"></router-view>
-      </transition>
+      <!-- </transition> -->
     </div>
 </template>
 
