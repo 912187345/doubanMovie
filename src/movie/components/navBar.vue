@@ -1,14 +1,14 @@
 <template>
     <div class="navBar" :class="fiexdBol?'fixed':''" ref='nav'>
-        <router-link to="/piaofang" @click.native='selct("/piaofang")' :class='type ==="/piaofang"?"active":""'>
+        <router-link to="/movie/piaofang" @click.native='selct("/movie/piaofang")' :class='type ==="/movie/piaofang"?"active":""'>
             <div>
                 北美票房榜
             </div>
         </router-link>
-        <router-link to="/shangying" @click.native='selct("/shangying")' :class='type ==="/shangying"?"active":""'>
+        <router-link to="/movie/shangying" @click.native='selct("/movie/shangying")' :class='type ==="/movie/shangying"?"active":""'>
             广州正在上映
         </router-link>
-        <router-link to="/TOP250" @click.native='selct("/TOP250")' :class='type ==="/TOP250"?"active":""'>
+        <router-link to="/movie/TOP250" @click.native='selct("/movie/TOP250")' :class='type ==="/movie/TOP250"?"active":""'>
             TOP250
         </router-link>
     </div>

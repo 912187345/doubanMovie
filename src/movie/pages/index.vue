@@ -2,7 +2,8 @@
 <template>
 <div>
     <mt-header title="豆瓣电影">
-        <router-link to="/search" slot="right">搜索</router-link>
+        <router-link to='/' slot='left'>首页</router-link>
+        <router-link to="/search/movie" slot="right">搜索</router-link>
     </mt-header>
     <swiper></swiper>
     <nav-bar></nav-bar>
