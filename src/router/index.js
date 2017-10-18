@@ -7,17 +7,17 @@ Vue.use(Router)
 import index from '../movie/choseModul.vue'
 
 // movie
-import mIndex from '../movie/pages/index'
-import celebrity from '../movie/pages/celebrityDetail'
-import mDetail from '../movie/pages/detail'
-import mSearch from '../movie/components/search'
-import list1 from '../movie/components/list1'
-import list2 from '../movie/components/list2'
-import list3 from '../movie/components/list3'
+const mIndex = r => require.ensure([], () => r(require('@/movie/pages/index')), 'mIndex');
+const celebrity = r => require.ensure([], () => r(require('@/movie/pages/celebrityDetail')), 'celebrity');
+const mDetail = r => require.ensure([], () => r(require('@/movie/pages/detail')), 'mDetail');
+const mSearch = r => require.ensure([], () => r(require('@/movie/components/search')), 'mSearch');
+const list1 = r => require.ensure([], () => r(require('@/movie/components/list1')), 'list1');
+const list2 = r => require.ensure([], () => r(require('@/movie/components/list2')), 'list2');
+const list3 = r => require.ensure([], () => r(require('@/movie/components/list3')), 'list3');
 
 // book
-import bIndex from '../movie/bookPage/index'
-import bDetail from '../movie/bookPage/bookDetail'
+const bIndex = r => require.ensure([], () => r(require('@/movie/bookPage/index')), 'bIndex');
+const bDetail = r => require.ensure([], () => r(require('@/movie/bookPage/bookDetail')), 'bDetail');
 
 export default new Router({
   mode: 'history',
